@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md fixed-top">
+  <div class="container">
+    <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#menu">
+      <span class="visually-hidden"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav flex-grow-1 justify-content-between">
+        <li class="nav-item"><a class="nav-link" routerLink="/home">JanZap</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/shop">Catálogo</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/shipping">Envíos</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/returns">Devoluciones</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/questions">Preguntas frecuentes</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contact">Contacto</a></li>
+        <li class="nav-item d-none d-xs-block d-md-block">
+          <span class="nav-link" *ngIf="userEmail" routerLink="/profile" >{{ userEmail }}</span>
+          <a class="nav-link" *ngIf="!userEmail" routerLink="/login">
+            <i class="fa fa-user"></i>
+          </a>
+        </li>
+        <li class="nav-item d-none d-xs-block d-md-block" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/admin">Panel de control</a>
+        </li>
+        <li class="nav-item d-none d-xs-block d-md-block">
+          <app-cart-button></app-cart-button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

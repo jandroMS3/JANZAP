@@ -1,0 +1,26 @@
+<div class="cart-container">
+    <button type="button" class="btn btn-secondary cart-button" (click)="togglePopover()">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="badge badge-pill badge-danger">{{ itemCount > 99 ? '99+' : itemCount }}</span>
+    </button>
+    <div *ngIf="isPopoverVisible" class="popover bs-popover-bottom">
+      <!-- Contenido del popover -->
+      <div class="popover-body">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let product of places;">
+            <div class="scroll-container">
+              <div class="d-flex align-items-center">
+                <img src="{{ product.picture }}" alt="{{ product.name }}" class="rounded mr-3 product-image">
+                <div class="flex-grow-1">
+                  <h5 class="mb-1">{{ product.name }}</h5>
+                  <p class="mb-1 price-text">{{ product.price }}€</p>
+                </div>
+                <button class="btn btn-danger delete-button" (click)="deleteProduct(product)"><i class="fa fa-trash"></i></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
